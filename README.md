@@ -39,6 +39,31 @@ Follow these instructions to get the project running on your local machine.
 -   Python 3.8 or newer
 -   Git
 
+  
+## 📂 Project Structure
+
+```bash
+Pathfinder-Prime/
+├── maps/                # Contains map files (.txt) for testing
+│   ├── small.txt
+│   ├── medium.txt
+│   ├── large.txt
+│   └── dynamic.txt
+├── pathfinder/          # Core source code for the project
+│   ├── __init__.py      # Makes the 'pathfinder' directory a Python package
+│   ├── agent.py         # Defines the agent and its pathfinding logic (BFS, A*, etc.)
+│   └── environment.py   # Models the grid, obstacles, and terrain costs
+├── tests/               # Contains unit tests for the project
+│   └── test_astar.py    # Tests for the A* algorithm
+├── .gitignore           # Specifies files for Git to ignore (e.g., __pycache__)
+├── main.py              # Main script to run the simulations via CLI
+├── README.md            # This file
+├── report.pdf           # The detailed project report and analysis
+└── requirements.txt     # Python dependencies for pip
+
+
+
+
 ### Installation
 
 1.  **Clone the repository:**
@@ -69,26 +94,4 @@ The main entry point for the simulation is `main.py`. You can run different algo
 
 ```bash
 python main.py --map <path_to_map_file> --algorithm <algorithm_name>
-
-
-## 📂 Project Structure
-
-```bash
-Pathfinder-Prime/
-├── maps/                # Contains map files (.txt) for testing
-│   ├── small.txt
-│   ├── medium.txt
-│   ├── large.txt
-│   └── dynamic.txt
-├── pathfinder/          # Core source code for the project
-│   ├── __init__.py      # Makes the 'pathfinder' directory a Python package
-│   ├── agent.py         # Defines the agent and its pathfinding logic (BFS, A*, etc.)
-│   └── environment.py   # Models the grid, obstacles, and terrain costs
-├── tests/               # Contains unit tests for the project
-│   └── test_astar.py    # Tests for the A* algorithm
-├── .gitignore           # Specifies files for Git to ignore (e.g., __pycache__)
-├── main.py              # Main script to run the simulations via CLI
-├── README.md            # This file
-├── report.pdf           # The detailed project report and analysis
-└── requirements.txt     # Python dependencies for pip
 
