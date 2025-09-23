@@ -30,16 +30,6 @@
 
 ---
 
-## 🚀 Getting Started
-
-Follow these instructions to get the project running on your local machine.
-
-### Prerequisites
-
--   Python 3.8 or newer
--   Git
-
-  
 ## 📂 Project Structure
 
 ```bash
@@ -60,38 +50,3 @@ Pathfinder-Prime/
 ├── README.md            # This file
 ├── report.pdf           # The detailed project report and analysis
 └── requirements.txt     # Python dependencies for pip
-
-
-
-
-### Installation
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/404SkillNotFound/Pathfinder-Prime.git](https://github.com/404SkillNotFound/Pathfinder-Prime.git)
-    cd Pathfinder-Prime
-    ```
-
-2.  **Install dependencies:**
-    > **Note:** It is highly recommended to use a Python virtual environment to avoid conflicts with other projects.
-
-    ```bash
-    # Create and activate a virtual environment
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-
-    # Install the required packages
-    pip install -r requirements.txt
-    ```
-
----
-
-## ⚙️ Usage
-
-The main entry point for the simulation is `main.py`. You can run different algorithms on various maps using command-line arguments.
-
-#### Command Structure:
-
-```bash
-python main.py --map <path_to_map_file> --algorithm <algorithm_name>
-
