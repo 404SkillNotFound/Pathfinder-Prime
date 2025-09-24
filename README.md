@@ -1,441 +1,145 @@
-Pathfinder-Prime: Autonomous Delivery Agent
+# Pathfinder-Prime
 
+**An Autonomous Delivery Agent for CSA2001 - Fundamentals of AI and ML**
 
+Pathfinder-Prime is an advanced pathfinding system designed to navigate a 2D grid-based city environment for efficient package delivery. The system handles both static environments with varying terrain costs and dynamic environments with moving obstacles, demonstrating various AI search algorithms in real-world scenarios.
 
-Pathfinder-Prime is a project for CSA2001 - Fundamentals of AI and ML. It features an autonomous agent that navigates a 2D grid-based city to deliver packages efficiently. The agent is designed to handle static environments with varying terrain costs as well as dynamic environments with moving obstacles, using a range of search and replanning algorithms.
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Pathfinding Algorithms](#pathfinding-algorithms)
+- [Map File Format](#map-file-format)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dynamic Replanning](#dynamic-replanning)
+- [Performance Analysis](#performance-analysis)
 
+## Features
 
-<h1 align="center">
+- **Environment Modeling**: 2D city grid with static obstacles, varying terrain costs, and dynamic obstacles
+- **Multiple Pathfinding Algorithms**: BFS, UCS, and A* with Manhattan distance heuristic
+- **Dynamic Replanning**: Local search strategy to adapt when new obstacles appear
+- **Performance Analysis**: Benchmarks across different maps based on path cost, nodes expanded, and execution time
+- **Visualization**: Visual representation of the path found by the agent
 
+## Technologies Used
 
-  Pathfinder-Prime 🤖📍
+- **Language**: Python 3.8+
+- **Dependencies**: matplotlib (for visualization)
+- **Core Framework**: Custom pathfinding implementation
 
+## Project Structure
 
-</h1>
-
-
-
-
-Features
-
-
-Complex Environment Modeling: Simulates a 2D city grid with:
-
-
-<p align="center">
-
-
-  An autonomous delivery agent for CSA2001 that navigates complex 2D grid environments using AI search algorithms.
-
-
-</p>
-
-
-
-
-Static obstacles (e.g., buildings).
-
-
-<p align="center">
-
-
-  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python Version">
-
-  <img src="https://img.shields.io/badge/Project%20Status-Complete-brightgreen" alt="Project Status">
-
-
-</p>
-
-
-
-
-Varying terrain costs (e.g., roads vs. rough terrain).
-
-
----
-
-
-
-
-Dynamic obstacles with predictable or unpredictable movement.
-
-
-**Pathfinder-Prime** features an autonomous agent designed to efficiently navigate a 2D grid-based city. The agent can handle static environments with varying terrain costs as well as dynamic environments with moving obstacles, using a range of search and replanning algorithms.
-
-
-
-
-Pathfinding Algorithms: Implements several classic AI search algorithms to find the optimal path.
-
-
-## 🎯 Key Features
-
-
-
-
-Uninformed Search: Breadth-First Search (BFS), Uniform-Cost Search (UCS).
-
-
--   **Complex Environment Modeling:** Simulates a 2D city grid with:
-
-
-    -   Static obstacles (e.g., buildings).
-
-
-    -   Varying terrain costs (e.g., roads vs. rough terrain).
-
-
-    -   Dynamic obstacles with predictable or unpredictable movement.
-
-
--   **Advanced Pathfinding:** Implements several classic AI search algorithms to find the optimal path.
-
-
-    -   **Uninformed Search:** Breadth-First Search (BFS), Uniform-Cost Search (UCS).
-
-
-    -   **Informed Search:** A* Search with an admissible heuristic (Manhattan distance).
-
-
--   **Dynamic Replanning:** Utilizes a local search strategy to adapt to unexpected changes in the environment, such as new obstacles appearing on the planned route.
-
-
--   **Performance Analysis:** Benchmarks algorithm performance across different maps based on path cost, nodes expanded, and execution time.
-
-
-
-
-Informed Search: A* Search with an admissible heuristic (Manhattan distance).
-
-
----
-
-
-
-
-Dynamic Replanning: Utilizes a local search strategy to adapt to unexpected changes in the environment, such as new obstacles appearing on the planned route.
-
-
-## 🚀 Getting Started
-
-
-
-
-Performance Analysis: The agent's performance is benchmarked across different algorithms and maps based on path cost, nodes expanded, and execution time.
-
-
-
-
-
-Getting Started
-
-Follow these instructions to get the project running on your local machine.
-
-
-
-
-Prerequisites
-
-
-Python 3.8 or newer
-
-
-
-
-
-Git
-
-Project Structure
-
-
+```
 Pathfinder-Prime/
-
-
-├── maps/                # Contains map files (.txt) for testing
-
-
+├── maps/                 # Contains map file (.txt) for testing
 │   ├── small.txt
-
-
 │   ├── medium.txt
-
-
-│   └── ...
-
-
+│   └── dynamic.txt
 ├── pathfinder/          # Core source code for algorithms and environment
-
-
 │   ├── __init__.py
-
-
 │   └── algorithms.py
-
-
+├── tests/               # Test files
 ├── .gitignore
-
-
-├── main.py              # Main script to run the simulations via CLI
-
-
-├── README.md            # This file
-
-
+├── main.py              # Main script to run simulations via CLI
+├── README.md            # Project documentation
 ├── report.pdf           # Project report
-
-
 └── requirements.txt     # Python dependencies
+```
 
+## Pathfinding Algorithms
 
+The project implements several classic AI search algorithms:
 
+### Uninformed Search
+- **Breadth-First Search (BFS)**: Explores all neighbors at the current depth before moving to nodes at the next depth level
+- **Uniform-Cost Search (UCS)**: Expands the node with the lowest path cost, optimal for weighted graphs
 
+### Informed Search
+- **A* Search**: Uses Manhattan distance heuristic to guide the search toward the goal, balancing between UCS and greedy best-first search
 
+### Dynamic Replanning
+- **Local Search Strategy**: Adapts to unexpected environmental changes when new obstacles appear during navigation
 
-Installation
+## Map File Format
 
+The grid maps use a text-based format where each character represents a cell:
 
-Clone the repository:
+- `S`: Starting position of agent
+- `G`: Goal/destination
+- `#`: Impassable static obstacle
+- `.`: Normal terrain (cost: 1)
+- `*`: Difficult terrain (cost: 3)
+- `@`: Water terrain (cost: 5)
+- `D`: Dynamic obstacle
 
+## Installation
 
-
-
-
-git clone [https://github.com/404SkillNotFound/Pathfinder-Prime.git](https://github.com/404SkillNotFound/Pathfinder-Prime.git)
-
-
-cd Pathfinder-Prime
-
-
-
-
-
-Install dependencies:
-
-
-It is recommended to use a virtual environment.
-
-
-
-
-
-# Create and activate a virtual environment (optional but recommended)
-
-
-python -m venv venv
-
-
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-
-
-
-
-# Install the required packages
-
-
-pip install -r requirements.txt
-
-
-
-
-
-Usage
-
-
-The main entry point for the simulation is main.py. You can run different pathfinding algorithms on various maps using command-line arguments.
-
-
-
-
-
-Command Structure:
-
-
-
-
-
-python main.py --map <path_to_map_file> --algorithm <algorithm_name>
-
-
-### Prerequisites
-
-
-
-
-Arguments:
-
-
--   Python 3.8 or newer
-
-
--   Git
-
-
-
-
---map: The file path to the grid map. (e.g., maps/small.txt)
-
-
-### Installation
-
-
-
-
---algorithm: The search algorithm to use. Options are bfs, ucs, astar.
-
-
-1.  **Clone the repository:**
-
-
-    ```bash
-
-
-    git clone [https://github.com/404SkillNotFound/Pathfinder-Prime.git](https://github.com/404SkillNotFound/Pathfinder-Prime.git)
-
-
-    cd Pathfinder-Prime
-
-
-    ```
-
-
-
-
-Examples:
-
-
-2.  **Install dependencies:**
-
-
-    > **Note:** It is highly recommended to use a Python virtual environment to avoid conflicts with other projects.
-
-
-
-
-*Run A on the medium map:**
-
-
-    ```bash
-
-
-    # Create and activate a virtual environment
-
-
-    python -m venv venv
-
-
-    source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-
-
-
-
-python main.py --map maps/medium.txt --algorithm astar
-
-
-    # Install the required packages
-
-
-    pip install -r requirements.txt
-
-
-    ```
-
-
-
-
-Run BFS on the small map:
-
-
----
-
-
-
-
-python main.py --map maps/small.txt --algorithm bfs
-
-
-## ⚙️ Usage
-
-
-
-
-Run Dynamic Replanning Demo:
-
-
-To run the proof-of-concept for dynamic replanning, use the dynamic map. The agent will initially plan a path, and the simulation will introduce an obstacle, forcing the agent to replan.
-
-
-The main entry point for the simulation is `main.py`. You can run different algorithms on various maps using command-line arguments.
-
-
-
-
-python main.py --map maps/dynamic.txt --algorithm astar
-
-
-#### Command Structure:
-
-
-
-
-The console output will log when the obstacle appears and the agent initiates its replanning logic.
-
-
-
-
-
-Map File Format
-
-
-The grid maps are represented as .txt files where each character is a cell in the grid:
-
-
-
-
-
-S: Starting position of the agent.
-
-
-
-
-
-G: Goal/delivery destination.
-
-
-
-
-
-#: An impassable static obstacle (wall).
-
-
-
-
-
-.: Normal terrain with a movement cost of 1.
-
-
-
-
-
-*: Difficult terrain (e.g., gravel) with a movement cost of 3.
-
-
-
-
-
-@: Water terrain with a movement cost of 5.
-
-
-
-
-
-D: A dynamic obstacle.
-
-
-
-
-
+1. Clone the repository:
 ```bash
+git clone https://github.com/404SkillNotFound/Pathfinder-Prime.git
+```
 
+2. Navigate to the project directory:
+```bash
+cd Pathfinder-Prime
+```
 
+3. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+The main entry point is `main.py`, which runs simulations via command-line interface:
+
+### Command Structure
+```bash
 python main.py --map <path_to_map_file> --algorithm <algorithm_name>
+```
+
+### Arguments
+- `--map`: Path to the grid map file (e.g., `maps/medium.txt`)
+- `--algorithm`: Search algorithm to use (`UCS`, `A*`, or `dynamic_demo`)
+
+### Examples
+```bash
+# Run A* on medium map
+python main.py --map maps/medium.txt --algorithm A*
+
+# Run UCS on small map
+python main.py --map maps/small.txt --algorithm UCS
+
+# Run dynamic replanning demo
+python main.py --map maps/dynamic.txt --algorithm dynamic_demo
+```
+
+## Dynamic Replanning
+
+The dynamic replanning feature demonstrates how the agent can adapt when the environment changes during navigation:
+
+1. Initially calculates a path using A*
+2. Simulates the agent moving along the path
+3. Introduces a dynamic obstacle on the planned path
+4. Replans from the agent's current position using A*
+
+This functionality is essential for real-world applications where obstacles may appear unexpectedly.
+
+## Performance Analysis
+
+The system provides performance metrics for each algorithm:
+- Path cost: Total cost of the path found
+- Nodes expanded: Number of nodes explored during search
+- Execution time: Time taken to find the solution
+
+These metrics allow for comparison between different pathfinding approaches and their effectiveness in various scenarios.
+
+## Contributing
+
+This project was developed for educational purposes in the CSA2001 - Fundamentals of AI and ML course. Contributions and improvements are welcome!
+
+## License
+
+This project is open source and available under the MIT License.
